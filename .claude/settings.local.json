@@ -10,7 +10,10 @@
       "Bash(git init *)",
       "Bash(git add *)",
       "Bash(git fetch *)",
-      "Bash(git rm *)"
+      "Bash(git rm *)",
+      "Bash(git push *)",
+      "Bash(# Try installing with --list to see agent support without installing *)",
+      "Bash(npx --yes skills@latest ls)"
     ]
   }
 }
