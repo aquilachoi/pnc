@@ -91,6 +91,62 @@ npx skills add JuliusBrussee/caveman -a hermes-agent
 
 ---
 
+## 3. garrytan/gstack
+
+**소스:** `github.com/garrytan/gstack`
+
+### 사전 요건
+
+```bash
+brew install oven-sh/bun/bun   # bun 런타임 필요
+```
+
+### 설치 방법
+
+gstack은 절대경로 symlink를 사용하므로 **글로벌(user-level)** 에 설치. 프로젝트 repo에 커밋하지 않음.
+
+```bash
+# 사전 요건: bun 설치
+brew install oven-sh/bun/bun
+
+# 글로벌 설치
+git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git \
+  ~/.claude/skills/gstack
+
+# setup 실행 (의존성 + Playwright + Chrome Headless 다운로드)
+cd ~/.claude/skills/gstack && ./setup
+```
+
+> 설치 위치: `~/.claude/skills/gstack` → 모든 프로젝트에서 자동 사용 가능.  
+> Codex CLI / Gemini CLI / Hermes Agent는 별도 설정 불필요 (Claude Code global skill 공유).
+
+### 주요 스킬 목록
+
+| 스킬 | 설명 |
+|------|------|
+| `gstack` | 메인 진입점. 헤드리스 브라우저 QA/테스트 |
+| `browse` | 페이지 탐색, 스크린샷, 요소 상호작용 |
+| `qa` | 전체 QA 플로우 (탐색 → 검증 → 버그 리포트) |
+| `qa-only` | 브라우저 없이 코드 기반 QA |
+| `scrape` | 웹 스크래핑 |
+| `design-html` | 디자인 → 프로덕션 HTML/CSS 생성 |
+| `design-shotgun` | 여러 UI 변형 동시 생성 |
+| `design-review` | 디자인 리뷰 |
+| `review` | 코드 리뷰 |
+| `investigate` | 버그/이슈 조사 |
+| `ship` | 배포 플로우 |
+| `health` | 사이트 헬스 체크 |
+| `benchmark` | 성능 측정 (Core Web Vitals 등) |
+| `ios-qa` / `ios-fix` | iOS 앱 QA/수정 |
+
+### 업그레이드
+
+```bash
+/gstack-upgrade
+```
+
+---
+
 ## 1. mattpocock/skills
 
 **소스:** `github.com/mattpocock/skills`

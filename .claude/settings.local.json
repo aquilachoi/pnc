@@ -13,7 +13,10 @@
       "Bash(git rm *)",
       "Bash(git push *)",
       "Bash(# Try installing with --list to see agent support without installing *)",
-      "Bash(npx --yes skills@latest ls)"
+      "Bash(npx --yes skills@latest ls)",
+      "Bash(ls ~/.claude/skills/gstack 2>/dev/null && echo \"exists\" || echo \"not found\" *)",
+      "Bash(./setup)",
+      "Bash(ls ~/.claude/skills/ | grep gstack 2>/dev/null || echo \"global: none\" *)"
     ]
   }
 }
