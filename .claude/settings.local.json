@@ -8,7 +8,9 @@
       "WebFetch(domain:www.packncover.com)",
       "Bash(gh auth *)",
       "Bash(git init *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git fetch *)",
+      "Bash(git rm *)"
     ]
   }
 }
