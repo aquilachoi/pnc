@@ -91,7 +91,38 @@ npx skills add JuliusBrussee/caveman -a hermes-agent
 
 ---
 
-## 3. garrytan/gstack
+## 3. obra/superpowers
+
+**소스:** `github.com/obra/superpowers`
+
+### 설치 방법
+
+```bash
+npx skills add obra/superpowers -a "*" -y
+```
+
+### 설치되는 스킬 목록
+
+| 스킬 | 설명 |
+|------|------|
+| `brainstorming` | 아이디어 브레인스토밍 |
+| `using-superpowers` | superpowers 스킬 활용 가이드 |
+| `systematic-debugging` | 체계적 디버깅 방법론 |
+| `writing-plans` | 구현 플랜 작성 |
+| `requesting-code-review` | 코드 리뷰 요청 방법 |
+| `receiving-code-review` | 코드 리뷰 수신 및 처리 |
+| `test-driven-development` | TDD 방법론 |
+| `dispatching-parallel-agents` | 병렬 에이전트 디스패치 |
+| `executing-plans` | 플랜 실행 |
+| `finishing-a-development-branch` | 개발 브랜치 완료 절차 |
+| `subagent-driven-development` | 서브에이전트 기반 개발 |
+| `using-git-worktrees` | git worktree 활용 |
+| `verification-before-completion` | 완료 전 검증 절차 |
+| `writing-skills` | 문서/코드 작성 스킬 |
+
+---
+
+## 4. garrytan/gstack
 
 **소스:** `github.com/garrytan/gstack`
 
