@@ -221,7 +221,27 @@ npx skills add safishamsi/graphify -a "*" -y
 
 ---
 
-## 6. garrytan/gstack
+## 6. openai/codex-plugin-cc
+
+**소스:** `github.com/openai/codex-plugin-cc`
+
+### 설치 방법
+
+```bash
+npx skills add openai/codex-plugin-cc -a "*" -y
+```
+
+### 설치되는 스킬 목록
+
+| 스킬 | 설명 |
+|------|------|
+| `codex-cli-runtime` | Codex CLI 런타임 환경 설정 및 실행 |
+| `codex-result-handling` | Codex 결과 처리 및 후속 작업 |
+| `gpt-5-4-prompting` | GPT-4.5 프롬프팅 최적화 |
+
+---
+
+## 7. garrytan/gstack
 
 **소스:** `github.com/garrytan/gstack`
 

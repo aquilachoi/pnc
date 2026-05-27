@@ -49,6 +49,18 @@
       "skillPath": "skills/caveman-stats/SKILL.md",
       "computedHash": "47ce2de3d6cb39a75047b5c962e4eb3da15594e7397c94103e9a104d42626553"
     },
+    "codex-cli-runtime": {
+      "source": "openai/codex-plugin-cc",
+      "sourceType": "github",
+      "skillPath": "plugins/codex/skills/codex-cli-runtime/SKILL.md",
+      "computedHash": "03b09f8ad5721f1d33d830cff54637656c58920befcb32835c6f003e625a7a54"
+    },
+    "codex-result-handling": {
+      "source": "openai/codex-plugin-cc",
+      "sourceType": "github",
+      "skillPath": "plugins/codex/skills/codex-result-handling/SKILL.md",
+      "computedHash": "1ca05b8eb3e45816b428dc71e24355a89a8f997502ade309e0c53a06adb1b1e7"
+    },
     "diagnose": {
       "source": "mattpocock/skills",
       "sourceType": "github",
@@ -72,6 +84,12 @@
       "sourceType": "github",
       "skillPath": "skills/finishing-a-development-branch/SKILL.md",
       "computedHash": "932d23af11a3eb2b758f5b1d9aec7b6d28ddd26658328414f87f34dff7179d19"
+    },
+    "gpt-5-4-prompting": {
+      "source": "openai/codex-plugin-cc",
+      "sourceType": "github",
+      "skillPath": "plugins/codex/skills/gpt-5-4-prompting/SKILL.md",
+      "computedHash": "8d8fcf95a90bbced0bc2f500b3b13aa200e8a4460e931c1ec798e69f59c24366"
     },
     "graphify": {
       "source": "safishamsi/graphify",
