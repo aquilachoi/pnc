@@ -27,23 +27,9 @@ node --version   # v18 이상 권장
 
 ```bash
 # 설치된 에이전트 자동 감지 후 모두에 설치
-npx skills add mattpocock/skills
-npx skills add JuliusBrussee/caveman
+npx skills add <owner/repo> -a "*" -y
 
-# 특정 에이전트만 지정해 설치
-npx skills add mattpocock/skills -a claude
-npx skills add mattpocock/skills -a gemini
-npx skills add mattpocock/skills -a codex
-npx skills add mattpocock/skills -a hermes
-
-# 모든 에이전트에 강제 설치
-npx skills add mattpocock/skills -a "*"
-```
-
-### 기존 프로젝트 복원 (skills-lock.json 있을 때)
-
-```bash
-# skills-lock.json 기반으로 동일 버전 복원
+# 기존 프로젝트 복원 (skills-lock.json 있을 때)
 npx skills experimental_install
 ```
 
@@ -54,133 +40,48 @@ npx skills experimental_install
 #### Claude Code
 
 ```bash
-npx skills add mattpocock/skills -a claude
-npx skills add JuliusBrussee/caveman -a claude
+npx skills add <owner/repo> -a claude
 ```
 
 `.claude/skills/`에 symlink 생성. Claude Code에서 `/skill-name` 형태로 호출.
 
 #### Gemini CLI
 
-Gemini CLI는 `.agents/skills/`를 직접 읽으므로 별도 설정 불필요.  
-`gemini` 바이너리가 PATH에 있으면 `npx skills add` 시 자동 감지.
+Gemini CLI는 `.agents/skills/`를 직접 읽으므로 별도 설정 불필요.
 
 ```bash
-npx skills add mattpocock/skills -a gemini-cli
-npx skills add JuliusBrussee/caveman -a gemini-cli
+npx skills add <owner/repo> -a gemini-cli
 ```
 
 #### Codex CLI
 
-Codex CLI도 `.agents/skills/`를 직접 읽으므로 별도 설정 불필요.  
-`codex` 바이너리 또는 `~/.codex` 디렉터리 존재 시 자동 감지.
+Codex CLI도 `.agents/skills/`를 직접 읽으므로 별도 설정 불필요.
 
 ```bash
-npx skills add mattpocock/skills -a codex
-npx skills add JuliusBrussee/caveman -a codex
+npx skills add <owner/repo> -a codex
 ```
 
 #### Hermes Agent
 
 ```bash
-npx skills add mattpocock/skills -a hermes-agent
-npx skills add JuliusBrussee/caveman -a hermes-agent
+npx skills add <owner/repo> -a hermes-agent
 ```
 
-`.hermes/skills/` → `.agents/skills/` symlink 생성. 현재 프로젝트에 이미 설정됨.
+`.hermes/skills/` → `.agents/skills/` symlink 생성.
 
 ---
 
-## 3. obra/superpowers
-
-**소스:** `github.com/obra/superpowers`
-
-### 설치 방법
-
-```bash
-npx skills add obra/superpowers -a "*" -y
-```
-
-### 설치되는 스킬 목록
-
-| 스킬 | 설명 |
-|------|------|
-| `brainstorming` | 아이디어 브레인스토밍 |
-| `using-superpowers` | superpowers 스킬 활용 가이드 |
-| `systematic-debugging` | 체계적 디버깅 방법론 |
-| `writing-plans` | 구현 플랜 작성 |
-| `requesting-code-review` | 코드 리뷰 요청 방법 |
-| `receiving-code-review` | 코드 리뷰 수신 및 처리 |
-| `test-driven-development` | TDD 방법론 |
-| `dispatching-parallel-agents` | 병렬 에이전트 디스패치 |
-| `executing-plans` | 플랜 실행 |
-| `finishing-a-development-branch` | 개발 브랜치 완료 절차 |
-| `subagent-driven-development` | 서브에이전트 기반 개발 |
-| `using-git-worktrees` | git worktree 활용 |
-| `verification-before-completion` | 완료 전 검증 절차 |
-| `writing-skills` | 문서/코드 작성 스킬 |
-
----
-
-## 4. garrytan/gstack
-
-**소스:** `github.com/garrytan/gstack`
-
-### 사전 요건
-
-```bash
-brew install oven-sh/bun/bun   # bun 런타임 필요
-```
-
-### 설치 방법
-
-gstack은 절대경로 symlink를 사용하므로 **글로벌(user-level)** 에 설치. 프로젝트 repo에 커밋하지 않음.
-
-```bash
-# 사전 요건: bun 설치
-brew install oven-sh/bun/bun
-
-# 글로벌 설치
-git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git \
-  ~/.claude/skills/gstack
-
-# setup 실행 (의존성 + Playwright + Chrome Headless 다운로드)
-cd ~/.claude/skills/gstack && ./setup
-```
-
-> 설치 위치: `~/.claude/skills/gstack` → 모든 프로젝트에서 자동 사용 가능.  
-> Codex CLI / Gemini CLI / Hermes Agent는 별도 설정 불필요 (Claude Code global skill 공유).
-
-### 주요 스킬 목록
-
-| 스킬 | 설명 |
-|------|------|
-| `gstack` | 메인 진입점. 헤드리스 브라우저 QA/테스트 |
-| `browse` | 페이지 탐색, 스크린샷, 요소 상호작용 |
-| `qa` | 전체 QA 플로우 (탐색 → 검증 → 버그 리포트) |
-| `qa-only` | 브라우저 없이 코드 기반 QA |
-| `scrape` | 웹 스크래핑 |
-| `design-html` | 디자인 → 프로덕션 HTML/CSS 생성 |
-| `design-shotgun` | 여러 UI 변형 동시 생성 |
-| `design-review` | 디자인 리뷰 |
-| `review` | 코드 리뷰 |
-| `investigate` | 버그/이슈 조사 |
-| `ship` | 배포 플로우 |
-| `health` | 사이트 헬스 체크 |
-| `benchmark` | 성능 측정 (Core Web Vitals 등) |
-| `ios-qa` / `ios-fix` | iOS 앱 QA/수정 |
-
-### 업그레이드
-
-```bash
-/gstack-upgrade
-```
-
----
+## 스킬 목록
 
 ## 1. mattpocock/skills
 
 **소스:** `github.com/mattpocock/skills`
+
+### 설치 방법
+
+```bash
+npx skills add mattpocock/skills -a "*" -y
+```
 
 ### 설치되는 스킬 목록
 
@@ -202,8 +103,6 @@ cd ~/.claude/skills/gstack && ./setup
 
 ### 초기 설정 (최초 1회)
 
-설치 후 프로젝트별 설정 필요:
-
 ```
 /setup-matt-pocock-skills
 ```
@@ -215,6 +114,12 @@ cd ~/.claude/skills/gstack && ./setup
 ## 2. JuliusBrussee/caveman
 
 **소스:** `github.com/JuliusBrussee/caveman`
+
+### 설치 방법
+
+```bash
+npx skills add JuliusBrussee/caveman -a "*" -y
+```
 
 ### 설치되는 스킬 목록
 
@@ -246,3 +151,121 @@ stop caveman      # 일반 모드 복귀
 | full | ~50-60% | 관사 제거, 단편 OK (기본값) |
 | ultra | ~70-75% | 약어, 화살표 인과관계 표기 |
 | wenyan-full | ~80-90% | 문언문 최대 압축 |
+
+---
+
+## 3. imxv/pretty-mermaid-skills
+
+**소스:** `github.com/imxv/pretty-mermaid-skills`
+
+### 설치 방법
+
+```bash
+npx skills add imxv/pretty-mermaid-skills -a "*" -y
+```
+
+### 설치되는 스킬 목록
+
+| 스킬 | 설명 |
+|------|------|
+| `pretty-mermaid` | Mermaid 다이어그램을 시각적으로 보기 좋게 생성/개선 |
+
+---
+
+## 4. obra/superpowers
+
+**소스:** `github.com/obra/superpowers`
+
+### 설치 방법
+
+```bash
+npx skills add obra/superpowers -a "*" -y
+```
+
+### 설치되는 스킬 목록
+
+| 스킬 | 설명 |
+|------|------|
+| `brainstorming` | 아이디어 브레인스토밍 |
+| `using-superpowers` | superpowers 스킬 활용 가이드 |
+| `systematic-debugging` | 체계적 디버깅 방법론 |
+| `writing-plans` | 구현 플랜 작성 |
+| `requesting-code-review` | 코드 리뷰 요청 방법 |
+| `receiving-code-review` | 코드 리뷰 수신 및 처리 |
+| `test-driven-development` | TDD 방법론 |
+| `dispatching-parallel-agents` | 병렬 에이전트 디스패치 |
+| `executing-plans` | 플랜 실행 |
+| `finishing-a-development-branch` | 개발 브랜치 완료 절차 |
+| `subagent-driven-development` | 서브에이전트 기반 개발 |
+| `using-git-worktrees` | git worktree 활용 |
+| `verification-before-completion` | 완료 전 검증 절차 |
+| `writing-skills` | 문서/코드 작성 스킬 |
+
+---
+
+## 5. safishamsi/graphify
+
+**소스:** `github.com/safishamsi/graphify`
+
+### 설치 방법
+
+```bash
+npx skills add safishamsi/graphify -a "*" -y
+```
+
+### 설치되는 스킬 목록
+
+| 스킬 | 설명 |
+|------|------|
+| `graphify` | 데이터/개념을 그래프/다이어그램으로 시각화 |
+
+---
+
+## 6. garrytan/gstack
+
+**소스:** `github.com/garrytan/gstack`
+
+### 사전 요건
+
+```bash
+brew install oven-sh/bun/bun   # bun 런타임 필요
+```
+
+### 설치 방법
+
+gstack은 절대경로 symlink를 사용하므로 **글로벌(user-level)** 에 설치. 프로젝트 repo에 커밋하지 않음.
+
+```bash
+git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git \
+  ~/.claude/skills/gstack
+
+cd ~/.claude/skills/gstack && ./setup
+```
+
+> 설치 위치: `~/.claude/skills/gstack` → 모든 프로젝트에서 자동 사용 가능.  
+> Codex CLI / Gemini CLI / Hermes Agent는 별도 설정 불필요 (Claude Code global skill 공유).
+
+### 주요 스킬 목록
+
+| 스킬 | 설명 |
+|------|------|
+| `gstack` | 메인 진입점. 헤드리스 브라우저 QA/테스트 |
+| `browse` | 페이지 탐색, 스크린샷, 요소 상호작용 |
+| `qa` | 전체 QA 플로우 (탐색 → 검증 → 버그 리포트) |
+| `qa-only` | 브라우저 없이 코드 기반 QA |
+| `scrape` | 웹 스크래핑 |
+| `design-html` | 디자인 → 프로덕션 HTML/CSS 생성 |
+| `design-shotgun` | 여러 UI 변형 동시 생성 |
+| `design-review` | 디자인 리뷰 |
+| `review` | 코드 리뷰 |
+| `investigate` | 버그/이슈 조사 |
+| `ship` | 배포 플로우 |
+| `health` | 사이트 헬스 체크 |
+| `benchmark` | 성능 측정 (Core Web Vitals 등) |
+| `ios-qa` / `ios-fix` | iOS 앱 QA/수정 |
+
+### 업그레이드
+
+```bash
+/gstack-upgrade
+```
